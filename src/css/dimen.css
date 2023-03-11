@@ -1,0 +1,8 @@
+:root{
+    /* MARGIN */
+    --margin--no: 0px;
+    --margin--default: 12px;
+
+    /* SIZE */
+    --size-button: 48px;
+}

@@ -1,0 +1,80 @@
+/*
+* Copyright (c) 2023 Eii Chee Hieng
+* 
+* BEM naming convention is used in css code of this project
+*/
+
+@import url("color.css");
+@import url("dimen.css");
+
+*{
+    box-sizing: border-box;
+}
+
+button{
+    background-color: var(--light-grey-o64);
+    border: none;
+    border-radius: var(--size-button);
+    color: var(--black-o56);
+    height: var(--size-button);
+    overflow: hidden;
+    width: var(--size-button);
+    text-align: center;
+    transition: background-color .1s linear,color .1s linear,opacity .1s linear;
+}
+
+button:focus-visible{
+    outline: 2px solid var(--black-o56);
+}
+
+button:hover{
+    background-color: var(--white-o70);
+}
+
+button:active{
+    background-color: var(--light-grey-o65);
+}
+
+
+.galleryContainer{
+    background-color: red;
+    margin: var(--margin--no);
+    position: relative;
+}
+
+.galleryContainer .floating-button{
+    margin: var(--margin--no) var(--margin--default);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.galleryContainer .prev-button{
+    left: 0;
+}
+
+.galleryContainer .next-button{
+    right: 0;
+}
+
+.scrollContainer{
+    background-color: blue;
+    display: flex;
+    margin: var(--margin--no);
+    -ms-overflow-style: none;/* Hide Scrollbar (Edge)*/
+    overflow-x: auto;
+    scrollbar-width: none;/* Hide Scrollbar (Firefox) */
+    scroll-snap-type: x mandatory;
+}
+
+.scrollContainer::-webkit-scrollbar{
+    display: none;/* Hide Scrollbar (Chrome , Safari) */
+}
+
+.galleryItem{
+    background-color: green;
+    margin: var(--margin--default);
+    min-height: 150px;
+    min-width: 150px;
+    scroll-snap-align: center;
+}
