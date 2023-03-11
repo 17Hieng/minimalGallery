@@ -43,21 +43,6 @@ button:active{
     position: relative;
 }
 
-.gallery-container .floating-button{
-    margin: var(--margin--no) var(--margin--default);
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.gallery-container .prev-button{
-    left: 0;
-}
-
-.gallery-container .next-button{
-    right: 0;
-}
-
 .scroll-container{
     background-color: blue;
     display: flex;
@@ -72,7 +57,32 @@ button:active{
     display: none;/* Hide Scrollbar (Chrome , Safari) */
 }
 
-.galleryItem{
+.scroll-container .floating-button{
+    margin: var(--margin--no) var(--margin--default);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.scroll-container .prev-button{
+    left: 0;
+    visibility: visible;
+}
+
+.scroll-container .next-button{
+    right: 0;
+    visibility: visible;
+}
+
+.scroll-container .prev-button.hide{
+    visibility: hidden;
+}
+
+.scroll-container .next-button.hide{
+    visibility: hidden;
+}
+
+.gallery-item{
     background-color: green;
     margin: var(--margin--default);
     min-height: 150px;
