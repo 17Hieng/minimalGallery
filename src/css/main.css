@@ -9,6 +9,7 @@
 
 *{
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 button{
@@ -36,28 +37,28 @@ button:active{
 }
 
 
-.galleryContainer{
+.gallery-container{
     background-color: red;
     margin: var(--margin--no);
     position: relative;
 }
 
-.galleryContainer .floating-button{
+.gallery-container .floating-button{
     margin: var(--margin--no) var(--margin--default);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.galleryContainer .prev-button{
+.gallery-container .prev-button{
     left: 0;
 }
 
-.galleryContainer .next-button{
+.gallery-container .next-button{
     right: 0;
 }
 
-.scrollContainer{
+.scroll-container{
     background-color: blue;
     display: flex;
     margin: var(--margin--no);
@@ -67,7 +68,7 @@ button:active{
     scroll-snap-type: x mandatory;
 }
 
-.scrollContainer::-webkit-scrollbar{
+.scroll-container::-webkit-scrollbar{
     display: none;/* Hide Scrollbar (Chrome , Safari) */
 }
 
