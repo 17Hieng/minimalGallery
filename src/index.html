@@ -10,75 +10,19 @@
 
         <title>Minimal Gallery</title>
     </head>
-    <body>
-        <div class="gallery-container" style="width: 45%; display: inline-block;">
-
-            <div class="button-container">
-                <button class="floating-button prev-button">
-                    <span class="material-symbols-outlined" style="margin: 0 8px;">
-                        arrow_back_ios
-                    </span>
-                </button>
-                <button class="floating-button next-button">
-                    <span class="material-symbols-outlined">
-                        arrow_forward_ios
-                    </span>
-                </button>
-            </div>
-            
-            <div class="scroll-container">
-                <div class="galleryItem">
-    
-                </div>
-                <div class="galleryItem">
-    
-                </div>
-                <div class="galleryItem">
-    
-                </div>
-                <div class="galleryItem">
-    
-                </div>
-                <div class="galleryItem">
-    
-                </div>
-                <div class="galleryItem">
-    
-                </div>
-            </div>
-        </div>
+    <script type="module" src="main.js">
         
-        <div class="gallery-container" style="width: 45%; display: inline-block;">
-            <button class="floating-button prev-button">
-                <span class="material-symbols-outlined" style="margin: 0 8px;">
-                    arrow_back_ios
-                </span>
-            </button>
-            <button class="floating-button next-button">
-                <span class="material-symbols-outlined">
-                    arrow_forward_ios
-                </span>
-            </button>
-            <div class="scroll-container">
-                <div class="galleryItem">
-    
-                </div>
-                <div class="galleryItem">
-    
-                </div>
-                <div class="galleryItem">
-    
-                </div>
-                <div class="galleryItem">
-    
-                </div>
-                <div class="galleryItem">
-    
-                </div>
-                <div class="galleryItem">
-    
-                </div>
-            </div>
-        </div>
+    </script>
+    <body>
+        <script type="module">
+            import minimalGallery from "./main.js";
+
+            const mainGallery = new minimalGallery();
+            document.body.appendChild(mainGallery.getElement());
+            mainGallery.addGalleryItem();
+            mainGallery.addGalleryItem();
+            
+            
+        </script>
     </body>
 </html>
