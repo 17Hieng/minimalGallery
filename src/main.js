@@ -6,13 +6,14 @@ export default class minimalGallery{
         this.galleryContainer.classList.add("gallery-container");
 
         try{
-            this.scrollContainer = new scrollContainer().getElement();
+            this.scrollContainer = new scrollContainer();
         }
         catch(e){
             throw e.name + " - scrollContainer class is undefined.";
         }
-        this.galleryContainer.appendChild(this.scrollContainer);
+        this.galleryContainer.appendChild(this.scrollContainer.getElement());
     }
+
 
 
     getElement(){
@@ -22,9 +23,9 @@ export default class minimalGallery{
     addGalleryItem(){
         const galleryItem = document.createElement("div");
         galleryItem.classList.add("gallery-item");
-        
+
         try {
-            this.scrollContainer.appendChild(galleryItem);
+            this.scrollContainer.addItem(galleryItem);
         } catch (e) {
             if(e.name == "ReferenceError") throw "ReferenceError - Scroll Container not been created.";
             else throw "UnexpectedError - Gallery Item couldn't be added in scroll container.";
@@ -51,10 +52,13 @@ class scrollContainer{
         const nextButtonIcon = document.createElement("span");
 
         const buttonContainer = document.createElement("div");
+        this.contentContainer = document.createElement("div");  
+        this.pageIndicator = document.createElement("div");      
 
-                
         buttonContainer.classList.add("button-container");
         this.elem.classList.add("scroll-container");
+        this.contentContainer.classList.add("content-container");
+        this.pageIndicator.classList.add("page-indicator");
 
         prevButton.classList.add("floating-button","prev-button");
         nextButton.classList.add("floating-button","next-button");
@@ -66,6 +70,8 @@ class scrollContainer{
 
 
         this.elem.appendChild(buttonContainer);
+        this.elem.appendChild(this.contentContainer);
+        this.elem.appendChild(this.pageIndicator);
 
         buttonContainer.appendChild(prevButton);
         buttonContainer.appendChild(nextButton);
@@ -85,17 +91,32 @@ class scrollContainer{
                 this.next();
             }
         );
+
     }
 
     getElement(){
         return this.elem;
     }
 
+    addItem(item){
+        if (typeof(item) != 'object') throw "TypeError - only Object type is allowed."
+        this.contentContainer.appendChild(item);
+        
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+
+        this.pageIndicator.appendChild(dot);
+    }
+
+    removeItem(){
+
+    }
+
     prev(){
-        this.getElement().scrollBy(-this.getElement().clientWidth,0);
+        this.contentContainer.scrollBy(-this.getElement().clientWidth,0);
     }
 
     next(){
-        this.getElement().scrollBy(this.getElement().clientWidth,0);
+        this.contentContainer.scrollBy(this.getElement().clientWidth,0);
     }
 };
