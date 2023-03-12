@@ -51,10 +51,48 @@ button:active{
     overflow-x: auto;
     scrollbar-width: none;/* Hide Scrollbar (Firefox) */
     scroll-snap-type: x mandatory;
+    width: 100%;
 }
 
 .scroll-container::-webkit-scrollbar{
     display: none;/* Hide Scrollbar (Chrome , Safari) */
+}
+
+.scroll-container .content-container{
+    background-color: blue;
+    display: flex;
+    margin: var(--margin--no);
+    -ms-overflow-style: none;/* Hide Scrollbar (Edge)*/
+    overflow-x: auto;
+    scrollbar-width: none;/* Hide Scrollbar (Firefox) */
+    scroll-snap-type: x mandatory;
+    width: 100%;
+}
+
+.scroll-container .content-container::-webkit-scrollbar{
+    display: none;/* Hide Scrollbar (Chrome , Safari) */
+}
+
+.scroll-container .page-indicator{
+    background-color: transparent;
+    bottom: 12px;
+    height: 24px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.scroll-container .page-indicator .dot{
+    background-color: var(--light-grey-o64);
+    border-radius: 12px;
+    display: inline-block;
+    height: 12px;
+    margin: 0 3px;
+    width: 12px;
+}
+
+.scroll-container .page-indicator .dot.active{
+    background-color: var(--black-o56);
 }
 
 .scroll-container .floating-button{
@@ -85,10 +123,11 @@ button:active{
 .gallery-item{
     background-color: green;
     margin: var(--margin--default);
-    min-height: 150px;
-    min-width: 150px;
     scroll-snap-align: center;
+    min-width: 300px;
+    min-height: 350px;
 }
+
 
 /* MOBILE OPTIMIZATION */
 @media (hover: none){
