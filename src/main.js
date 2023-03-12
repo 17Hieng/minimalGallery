@@ -3,13 +3,17 @@
 export default class minimalGallery{
     constructor(){
         this.galleryContainer = document.createElement("div");   
-
         this.galleryContainer.classList.add("gallery-container");
 
-        this.scrollContainer = new scrollContainer().getElement();
-
+        try{
+            this.scrollContainer = new scrollContainer().getElement();
+        }
+        catch(e){
+            throw e.name + " - scrollContainer class is undefined.";
+        }
         this.galleryContainer.appendChild(this.scrollContainer);
     }
+
 
     getElement(){
         return this.galleryContainer;
@@ -17,10 +21,14 @@ export default class minimalGallery{
 
     addGalleryItem(){
         const galleryItem = document.createElement("div");
-
         galleryItem.classList.add("gallery-item");
         
-        this.scrollContainer.appendChild(galleryItem);
+        try {
+            this.scrollContainer.appendChild(galleryItem);
+        } catch (e) {
+            if(e.name == "ReferenceError") throw "ReferenceError - Scroll Container not been created.";
+            else throw "UnexpectedError - Gallery Item couldn't be added in scroll container.";
+        }
     }
     
     addImage(){
