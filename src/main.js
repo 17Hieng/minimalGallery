@@ -120,3 +120,33 @@ class scrollContainer{
         this.contentContainer.scrollBy(this.getElement().clientWidth,0);
     }
 };
+
+class pageIndicator{
+    constructor(){
+
+    }
+
+    addPage(where){
+
+    }
+
+    removePage(which){
+
+    }
+
+    setCurrentPage(which){
+
+    }
+
+    removeAll(){
+
+    }
+
+    hide(){
+
+    }
+
+    show(){
+        
+    }
+};
